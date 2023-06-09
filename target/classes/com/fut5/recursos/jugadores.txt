@@ -1,0 +1,2 @@
+1, Matias,gonzales,175, Delantero,50,80,false,9
+2, Lionel,Messi,170, Delantero,91,104,true,10
