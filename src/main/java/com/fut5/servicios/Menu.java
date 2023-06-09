@@ -1,12 +1,10 @@
 package com.fut5.servicios;
 
-import com.fut5.boostrap.Lista;
 
 public class Menu {
     public static void MenuPrincipal(){
         System.out.println("Bienvenido a El menu de Fut 5 App tu mejor app de futbol"); 
         boolean salir = false;
-        Lista.crearBaseDatos();
         while (!salir) {
         System.out.println("Bienvenido a Fut5");
         System.out.println("1.Crear Equipo");

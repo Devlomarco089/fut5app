@@ -18,7 +18,17 @@ public class Importar {
     public static void impor() {
         try (Reader reader = new FileReader("src\\main\\java\\com\\fut5\\recursos\\jugadores.txt");
             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {
-            Equipo equipo = new Equipo("Prueba", "20/12/2001");
+            System.out.println("Crear Nombre Equipo:");
+            String nombree = Escanear.leerLinea();
+            System.out.println("Fecha de creacion: ");
+            String fecha = Escanear.leerLinea();
+            System.out.println("Nombre Entrenador: ");
+            String entrenador = Escanear.leerLinea();
+            System.out.println("Apellido Entrenador: ");
+            String aentrenador = Escanear.leerLinea();
+            int edad = Escanear.leerEnetero();
+            Escanear.leerLinea();
+            Equipo equipo = new Equipo(nombree, fecha);
             for (CSVRecord csvRecord : csvParser) {
                 int id = Integer.parseInt(csvRecord.get(0));
                 String nombre = csvRecord.get(1);
@@ -32,8 +42,8 @@ public class Importar {
                 Jugador jugador = new Jugador(id, nombre, apellido, altura, posicion, goles, partidos, capitan, dorsal);
                 equipo.agregarJugador(jugador);
             }
-            Entrenador entrenador = new Entrenador("Juan", "Gomez", 45); 
-            equipo.setEntrenador(entrenador);
+            Entrenador nentrenador = new Entrenador(entrenador, aentrenador, edad); 
+            equipo.setEntrenador(nentrenador);
             Equipos.agregarEquipo(equipo);
         } catch (IOException e) {
             System.out.println("Error al Importar Jugadores");

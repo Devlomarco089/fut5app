@@ -16,7 +16,8 @@ public class Exportar {
     public static void Export(){
         System.out.println("Nombre del Equipo a Exportar: ");
         String equipo = Escanear.leerLinea();
-        Equipo equipoEncontrado = Equipos.buscarEquipo(equipo);
+        Equipo equipoEncontrado = null;
+        equipoEncontrado = Equipos.buscarEquipo(equipo);
         if (equipoEncontrado == null){
             System.out.println("Equipo no encontrado");
         }
@@ -35,6 +36,5 @@ public class Exportar {
             e.printStackTrace();
         }
     }
-    }
-}
+    }}
 
