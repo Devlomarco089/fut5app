@@ -1,15 +1,14 @@
 package com.fut5.servicios;
 
-import com.fut5.boostrap.Equipos;
+
 import com.fut5.dominio.Equipo;
 import com.fut5.dominio.Jugador;
-
-public class Bjugador{
-    public static void buscarJugador(){
+public class mostrarJugador{
+    public static void MostrarJugador(){
         System.out.println("Nombre del jugador: ");
         String nombre = Escanear.leerLinea();
-        Jugador jugador = Equipo.buscarJugador(nombre);
-        Equipo equipo = Equipos.buscarEquipoJ(nombre);
+        Jugador jugador = buscarJugador.encontrarJugador(nombre);
+        Equipo equipo = buscarJugador.encontrarEquipo(nombre);
         if (jugador != null){
             System.out.println("Nombre: " + jugador.getNombre() + " " + jugador.getApellido());
             boolean capitan = jugador.isCapitan();

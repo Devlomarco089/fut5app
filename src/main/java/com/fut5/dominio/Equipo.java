@@ -6,7 +6,7 @@ import java.util.List;
 public class Equipo {
     private String nombre;
     private String fechaDeCreacion;
-    public static List<Jugador> jugadores;
+    public  ArrayList<Jugador> jugadores;
     
     
     private Entrenador entrenador;
@@ -33,8 +33,8 @@ public class Equipo {
     public List<Jugador> getJugadores() {
         return  jugadores;
     }
-    public static void setJugadores(List<Jugador> jugadores) {
-        Equipo.jugadores = jugadores;
+    public void setJugadores(List<Jugador> jugadores) {
+        this.jugadores = (ArrayList<Jugador>) jugadores;
     }
     public Entrenador getEntrenador() {
         return entrenador;
@@ -42,15 +42,10 @@ public class Equipo {
     public void setEntrenador(Entrenador entrenador) {
         this.entrenador = entrenador;
     }
-    public void agregarJugador(Jugador jugador) {jugadores.add(jugador);}
-
-    public static Jugador buscarJugador(String nombre){
-            for (Jugador jugador : jugadores){
-                if (jugador.getNombre().equalsIgnoreCase(nombre)){
-                    return jugador;}
-            }
-        return null;
+    public void agregarJugador(Jugador jugador) {
+        jugadores.add(jugador);
     }
+
 }
 
 

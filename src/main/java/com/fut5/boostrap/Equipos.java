@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 import com.fut5.dominio.Equipo;
-import com.fut5.dominio.Jugador;
+
 
 
 
@@ -24,20 +24,11 @@ public class Equipos {
         return null;
     }
 
+
     public static void eliminarEquipo(Equipo equipo) {
         equipos.remove(equipo);
     }
 
-    public static Equipo buscarEquipoJ(String Jugador){
-        for (Equipo equipo : equipos){
-            for (Jugador jugador : Equipo.jugadores){
-                if (jugador.getNombre().equalsIgnoreCase(Jugador)){
-                    return equipo;
-                }
-            }
-        }
-        return null;
-    }
 
     public static void add(Equipo equipo1) {
     }

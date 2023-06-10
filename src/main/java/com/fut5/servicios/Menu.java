@@ -1,6 +1,6 @@
 package com.fut5.servicios;
 
-
+import com.fut5.servicios.Menu;
 public class Menu {
     public static void MenuPrincipal(){
         System.out.println("Bienvenido a El menu de Fut 5 App tu mejor app de futbol"); 
@@ -24,7 +24,7 @@ public class Menu {
             Buscar.buscarEquipo();
             break;
             case "3":
-            Bjugador.buscarJugador();
+            mostrarJugador.MostrarJugador();
             break;
             case "4":
             Eliminar.elimiarEquipo();

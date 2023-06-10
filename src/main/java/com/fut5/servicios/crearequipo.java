@@ -3,6 +3,9 @@ package com.fut5.servicios;
 import com.fut5.dominio.Entrenador;
 import com.fut5.dominio.Equipo;
 import com.fut5.dominio.Jugador;
+
+import java.util.ArrayList;
+
 import com.fut5.boostrap.Equipos;
 public class crearequipo {
     
@@ -25,8 +28,8 @@ public class crearequipo {
         equipo.setEntrenador(entrenador);
         System.out.println("Cargado Exitosamente");
         System.out.println("Cargar jugadores...");
-
         boolean seSeleccionoCapitan = false;
+        ArrayList<Jugador> jugadores = new ArrayList<>();
         System.out.println("Cuantos jugadores desea cargar (recomendable 5): ");
         int n = Escanear.leerEnetero();
         Escanear.leerLinea();
@@ -56,12 +59,10 @@ public class crearequipo {
                 esCapitan = capitan.equalsIgnoreCase("si");
                 seSeleccionoCapitan = true; 
             }
-
             Jugador Jugador = new Jugador(i, nombreJugador, apellidoJugador, alturaJugador, posicionJugador, golesJugador, partidosJugador, esCapitan, dorsalJugador);
-            equipo.agregarJugador(Jugador);
-
-
+            jugadores.add(Jugador);
         }
+        equipo.setJugadores(jugadores);
         Equipos.agregarEquipo(equipo);
         System.out.println("------------------------------------");
     }

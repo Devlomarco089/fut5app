@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
+import java.util.ArrayList;
+
 import com.fut5.boostrap.Equipos;
 import com.fut5.dominio.Entrenador;
 import com.fut5.dominio.Equipo;
@@ -29,6 +31,7 @@ public class Importar {
             int edad = Escanear.leerEnetero();
             Escanear.leerLinea();
             Equipo equipo = new Equipo(nombree, fecha);
+            ArrayList<Jugador> jugadores = new ArrayList<>();
             for (CSVRecord csvRecord : csvParser) {
                 int id = Integer.parseInt(csvRecord.get(0));
                 String nombre = csvRecord.get(1);
@@ -40,8 +43,9 @@ public class Importar {
                 boolean capitan = Boolean.parseBoolean(csvRecord.get(7));
                 int dorsal = Integer.parseInt(csvRecord.get(8));
                 Jugador jugador = new Jugador(id, nombre, apellido, altura, posicion, goles, partidos, capitan, dorsal);
-                equipo.agregarJugador(jugador);
+                jugadores.add(jugador);
             }
+            equipo.setJugadores(jugadores);
             Entrenador nentrenador = new Entrenador(entrenador, aentrenador, edad); 
             equipo.setEntrenador(nentrenador);
             Equipos.agregarEquipo(equipo);
