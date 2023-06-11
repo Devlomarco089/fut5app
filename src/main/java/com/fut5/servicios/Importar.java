@@ -9,29 +9,27 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
-import java.util.ArrayList;
 
-import com.fut5.boostrap.Equipos;
-import com.fut5.dominio.Entrenador;
+import java.util.List;
+
+
+
 import com.fut5.dominio.Equipo;
 import com.fut5.dominio.Jugador;
 
 public class Importar {
-    public static void impor() {
+    
+    public void impor(List<Equipo> equipos) {
         try (Reader reader = new FileReader("src\\main\\java\\com\\fut5\\recursos\\jugadores.txt");
             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {
-            System.out.println("Crear Nombre Equipo:");
-            String nombree = Escanear.leerLinea();
-            System.out.println("Fecha de creacion: ");
-            String fecha = Escanear.leerLinea();
-            System.out.println("Nombre Entrenador: ");
-            String entrenador = Escanear.leerLinea();
-            System.out.println("Apellido Entrenador: ");
-            String aentrenador = Escanear.leerLinea();
-            int edad = Escanear.leerEnetero();
-            Escanear.leerLinea();
-            Equipo equipo = new Equipo(nombree, fecha);
-            ArrayList<Jugador> jugadores = new ArrayList<>();
+            System.out.println("Nombre del equipo a importar ");
+            String equipon = Escanear.leerLinea();
+            Equipo equipoEncontrado = null;
+            for (Equipo e : equipos){
+                if (e.getNombre().equalsIgnoreCase(equipon))
+                equipoEncontrado = e;
+            }
+            
             for (CSVRecord csvRecord : csvParser) {
                 int id = Integer.parseInt(csvRecord.get(0));
                 String nombre = csvRecord.get(1);
@@ -43,14 +41,13 @@ public class Importar {
                 boolean capitan = Boolean.parseBoolean(csvRecord.get(7));
                 int dorsal = Integer.parseInt(csvRecord.get(8));
                 Jugador jugador = new Jugador(id, nombre, apellido, altura, posicion, goles, partidos, capitan, dorsal);
-                jugadores.add(jugador);
+                equipoEncontrado.getJugadores().add(jugador);
             }
-            equipo.setJugadores(jugadores);
-            Entrenador nentrenador = new Entrenador(entrenador, aentrenador, edad); 
-            equipo.setEntrenador(nentrenador);
-            Equipos.agregarEquipo(equipo);
+            System.out.println("Jugadores Importados.");
+            System.out.println("-----------------------------");
         } catch (IOException e) {
             System.out.println("Error al Importar Jugadores");
+            System.out.println("-----------------------------");
             e.printStackTrace();
         }
     }

@@ -1,9 +1,18 @@
 package com.fut5.servicios;
 
-import com.fut5.servicios.Menu;
+import com.fut5.boostrap.Equipos;
+
 public class Menu {
-    public static void MenuPrincipal(){
-        System.out.println("Bienvenido a El menu de Fut 5 App tu mejor app de futbol"); 
+
+    CrearEquipo crearEquipo = new CrearEquipo();
+    Buscar buscar = new Buscar();
+    JugadorBuscar buscarJugador = new JugadorBuscar();
+    Eliminar eliminar = new Eliminar();
+    Importar importar = new Importar();
+    Exportar exportar = new Exportar();
+    Equipos equipos = new Equipos();
+    public void MenuPrincipal(){
+        System.out.println("Bienvenido al Menu de Fut 5 'Tu Mejor App de Futbol'");
         boolean salir = false;
         while (!salir) {
         System.out.println("Bienvenido a Fut5");
@@ -16,29 +25,18 @@ public class Menu {
         System.out.println("7.Salir");
         System.out.println("Su eleccion: ");
         String opcion = Escanear.leerLinea();
-        switch (opcion){
-            case "1":
-            crearequipo.crearEquipo();
-            break;
-            case "2":
-            Buscar.buscarEquipo();
-            break;
-            case "3":
-            mostrarJugador.MostrarJugador();
-            break;
-            case "4":
-            Eliminar.elimiarEquipo();
-            break;
-            case "5":
-            Importar.impor();
-            break;
-            case "6":
-            Exportar.Export();
-            break;
-            case "7":
-            System.out.print("Gracias Por Usar Nuestros Servicios! Vuelva Pronto.");
-            salir = true;
-        }
+            switch (opcion) {
+                case "1" -> crearEquipo.crearEquipo(equipos.equipos);
+                case "2" -> buscar.buscarEquipo(equipos.equipos);
+                case "3" -> buscarJugador.encontrarJugador(equipos.equipos);
+                case "4" -> eliminar.elimiarEquipo(equipos.equipos);
+                case "5" -> importar.impor(equipos.equipos);
+                case "6" -> exportar.Export(equipos.equipos);
+                case "7" -> {
+                    System.out.print("Gracias Por Usar Nuestros Servicios! Vuelva Pronto.");
+                    salir = true;
+                }
+            }
         }
     }
 }

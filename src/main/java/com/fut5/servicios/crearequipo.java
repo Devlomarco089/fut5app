@@ -5,11 +5,11 @@ import com.fut5.dominio.Equipo;
 import com.fut5.dominio.Jugador;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import com.fut5.boostrap.Equipos;
-public class crearequipo {
-    
-    public static void crearEquipo(){
+
+public class CrearEquipo {
+    public void crearEquipo(List<Equipo> equipoList){
         System.out.println("Nombre Del equipo: ");
         String nombre = Escanear.leerLinea();
         System.out.println("Fecha de creacion del equipo: ");
@@ -41,7 +41,7 @@ public class crearequipo {
             System.out.println("Altura del jugador: ");
             double alturaJugador = Escanear.leerDoble();
             Escanear.leerLinea();
-            System.out.println("Posicion del jugador (nota: arquero defensor medio campista defensor): ");
+            System.out.println("Posicion del jugador (nota: arquero, defensor, medio campista, delantero): ");
             String posicionJugador = Escanear.leerLinea();
             System.out.println("Cantidad de goles: ");
             int golesJugador = Escanear.leerEnetero();
@@ -63,8 +63,8 @@ public class crearequipo {
             jugadores.add(Jugador);
         }
         equipo.setJugadores(jugadores);
-        Equipos.agregarEquipo(equipo);
+        equipoList.add(equipo);
         System.out.println("------------------------------------");
     }
-    }
+}
 

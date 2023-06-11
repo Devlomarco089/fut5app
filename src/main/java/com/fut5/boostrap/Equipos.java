@@ -6,31 +6,25 @@ import java.util.ArrayList;
 import com.fut5.dominio.Equipo;
 
 
-
-
 public class Equipos {
-    public static ArrayList<Equipo> equipos = new ArrayList<>();
+    public ArrayList<Equipo> equipos = new ArrayList<>();
 
-    public static void agregarEquipo(Equipo equipo) {
+    public void agregarEquipo(Equipo equipo) {
         equipos.add(equipo);
     }
 
-    public static Equipo buscarEquipo(String nombre) {
-        for (Equipo equipo : equipos) {
-            if (equipo.getNombre().equalsIgnoreCase(nombre)) {
-                return equipo;
+    public Equipo buscarEquipo(String nombre) {
+        Equipo equipo = null;
+        for (Equipo e : equipos) {
+            if (e.getNombre().equalsIgnoreCase(nombre)) {
+                equipo = e;
             }
         }
-        return null;
+        return equipo;
     }
 
-
-    public static void eliminarEquipo(Equipo equipo) {
+    public void eliminarEquipo(Equipo equipo) {
         equipos.remove(equipo);
-    }
-
-
-    public static void add(Equipo equipo1) {
     }
 
 }

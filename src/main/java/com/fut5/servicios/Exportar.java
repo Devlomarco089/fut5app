@@ -8,16 +8,19 @@ import java.util.List;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
-import com.fut5.boostrap.Equipos;
 import com.fut5.dominio.Equipo;
 import com.fut5.dominio.Jugador;
 
 public class Exportar {
-    public static void Export(){
+
+    public void Export(List<Equipo> equipos){
         System.out.println("Nombre del Equipo a Exportar: ");
-        String equipo = Escanear.leerLinea();
+        String equipon = Escanear.leerLinea();
         Equipo equipoEncontrado = null;
-        equipoEncontrado = Equipos.buscarEquipo(equipo);
+        for (Equipo e : equipos){
+            if (e.getNombre().equalsIgnoreCase(equipon))
+            equipoEncontrado = e;
+        }
         if (equipoEncontrado == null){
             System.out.println("Equipo no encontrado");
         }

@@ -5,8 +5,11 @@ import com.fut5.servicios.Menu;
 
 public class App 
 {
-    public static void main( String[] args )
-    {
-        Menu.MenuPrincipal();
+    public static void main( String[] args ) {
+
+        Menu menu = new Menu();
+        menu.MenuPrincipal();
+
+
     }
 }

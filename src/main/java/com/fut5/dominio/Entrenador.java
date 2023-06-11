@@ -1,12 +1,10 @@
 package com.fut5.dominio;
 
 public class Entrenador {
-    String nombre;
-    String apellido;
-    int edad;
-    public Entrenador(){
-
-    }
+    private String nombre;
+    private String apellido;
+    private int edad;
+    public Entrenador(){}
 
     public Entrenador(String nombre, String apellido, int edad) {
         this.nombre = nombre;
@@ -38,4 +36,12 @@ public class Entrenador {
         this.edad = edad;
     }
 
+    @Override
+    public String toString() {
+        return "Entrenador{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", edad=" + edad +
+                '}';
+    }
 }
