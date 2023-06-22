@@ -35,13 +35,4 @@ public class Entrenador {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-
-    @Override
-    public String toString() {
-        return "Entrenador{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", edad=" + edad +
-                '}';
-    }
 }

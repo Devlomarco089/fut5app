@@ -1,6 +1,6 @@
 package com.fut5.dominio;
 
-public class Jugador {
+public class Jugador implements Comparable<Jugador> {
     private int id = 1;
     private String nombre;
     private String apellido;
@@ -122,5 +122,9 @@ public class Jugador {
                 ", numeroCamiseta=" + numeroCamiseta +
                 ", equipo=" + equipo +
                 '}';
+    }
+    @Override
+    public int compareTo(Jugador jugador) {
+        return nombre.compareTo(jugador.getNombre());
     }
 }

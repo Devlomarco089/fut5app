@@ -55,13 +55,7 @@ public class Equipo {
         this.jugadores = jugadores;
     }
 
-    @Override
-    public String toString() {
-        return "Equipo{" +
-                "nombre='" + nombre + '\'' +
-                ", fechaDeCreacion='" + fechaDeCreacion + '\'' +
-                ", jugadores=" + jugadores +
-                ", entrenador=" + entrenador +
-                '}';
+    public void agregarJugador(Equipo equipo, Jugador jugador){
+        equipo.getJugadores().add(jugador);
     }
 }
